@@ -1,0 +1,49 @@
+﻿<Window x:Class="PictogramGame.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:PictogramGame"
+        Title="Pictogram Game" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Пиктограммы" FontSize="20" HorizontalAlignment="Center" Margin="0,10,0,10"/>
+
+        <Border Grid.Row="1" Margin="20">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10" >
+                    <TextBlock x:Name="difficultyText" Text="Сложность: " VerticalAlignment="Center"/>
+                    <ComboBox x:Name="difficultyComboBox" Width="100" SelectedIndex="0" >
+                        <ComboBoxItem Content="Легко"/>
+                        <ComboBoxItem Content="Средне"/>
+                        <ComboBoxItem Content="Сложно"/>
+                    </ComboBox>
+                    <Button x:Name="startButton" Content="Старт" Width="100" />
+                    <Button x:Name="rulesButton" Content="Правила" Width="100" Click="rulesButton_Click" />
+
+                    <TextBlock x:Name="timer" Text="" FontSize="20" Margin="90,0,0,0"/>
+                </StackPanel>
+                
+                <RichTextBox x:Name="questionText" IsReadOnly="True"  FontSize="16" Margin="0,0,0,10">
+                    <FlowDocument>
+                    </FlowDocument>
+                </RichTextBox>
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <TextBlock Text="Ответ: " VerticalAlignment="Center"/>
+                    <TextBox x:Name="answerText" Width="200" Margin="10,0,0,0"/>
+                </StackPanel>
+
+                <Button x:Name="submitButton" Content="Ответить"  Width="100" Margin="0,0,0,10" IsEnabled="False"/>
+
+                <TextBlock Text="Очки: " FontWeight="Bold" />
+                <TextBlock x:Name="scoreText" FontWeight="Bold" Margin="0,0,0,10" Text="0%"/>
+
+
+                <Button x:Name="nextButton" Content="Следующий вопрос" Width="200" IsEnabled="False"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
